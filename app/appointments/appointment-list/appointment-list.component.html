@@ -1,0 +1,49 @@
+
+<div class="container">
+  <div class="row">
+    <div style="padding-top:2em;">
+      <div class="col-md-6 dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">
+          Select Provider
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">vimikp@gmail.com</a></li>
+          <li><a href="#">kyle.boucher@lancom.co.nz</a></li>
+          <li><a href="#">mustafa.shehadeh@lancom.co.nz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="padding-top:1.1em;">
+      <div class="col-md-6">
+        <a class="btn btn-info" [routerLink]="['/edit', 0]">Book Appointment</a>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="panel panel-primary">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Description </th>
+          <th>Start</th>
+          <th>Party</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--<ng-container *ngFor="let appointment of appointmentList">-->
+        <ng-container *ngFor="let appointment of filteredAppointments">
+          <tr>
+            <td>{{appointment.Id}}</td>
+            <td>{{appointment.Description}}</td>
+            <td>{{appointment.Start}}</td>
+            <td>{{appointment.Party}}</td>
+            <td> <a [routerLink]="['/appointments', appointment.Id]">View Details</a></td>
+            <td><a [routerLink]="['/appointment', appointment.Id]"><i class="far fa-sticky-note"></i>Add Note</a></td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

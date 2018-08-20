@@ -1,0 +1,52 @@
+
+<h1>Create/Edit Appointment</h1>
+<nav class="navbar">
+  <div class="container" style="position:relative; text-align:left; padding-top: 2em;">
+    <form class="appointment-form" #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm)">
+      <div class="form-row">
+
+        <div class="form-group">
+          <input name="Id" [ngModel]="appointment?.Id" (ngModelChange)="appointment.Id = $event" placeholder="Id"/>
+        </div>
+
+        <div class="form-group col-md-12">
+          <input class="form-control" name="Description" [ngModel]="appointment?.Description" (ngModelChange)="appointment.Description = $event" style="width:200px;" placeholder="Description" />
+        </div>
+
+        <div class="form-group col-md-12">
+          <input class="form-control col-md-6" name="Start" [ngModel]="appointment?.Start" (ngModelChange)="appointment.Start = $event" placeholder="Start Date" />
+          <input class="form-control col-md-6" name="End" [ngModel]="appointment?.End" (ngModelChange)="appointment.End = $event" placeholder="End Date" />
+        </div>
+
+        <div class="form-group col-md-12">
+          <!--<input class="form-control col-md-6" name="Party[0]" [ngModel]="appointment?.Party" (ngModelChange)="appointment.Party[0] = $event" placeholder="User1" />
+
+  <input class="form-control col-md-6" name="Party[1]" [ngModel]="appointment?.Party" (ngModelChange)="appointment.Party[1] = $event" placeholder="User2" />-->
+          <input class="form-control col-md-6" name="Party" [ngModel]="appointment?.Party" (ngModelChange)="appointment.Party = $event" placeholder="User1" />
+          <!--<input class="form-control col-md-6" name="Party" [ngModel]="appointment?.Party[1]" placeholder="User2" />-->
+
+        </div>
+
+        <div class="form-group col-md-12">
+          <input class="form-control" style="width:200px;" name="ProviderEmail"  placeholder="vimikp@gmail.com" required />
+          <!--<div class="validation-error" *ngIf="ProviderEmail.invalid && ProviderEmail.touched">This Field is Required.</div>-->
+        </div>
+
+        <div class="form-group">
+          <textarea name="Notes" [ngModel]="appointment?.Notes" (ngModelChange)="appointment.Notes = onNotesChange($event)" placeholder="Notes"></textarea>
+        </div>
+
+        <div class="form-group col-md-12">
+          <!--<button [disabled]="!appointmentForm.form.valid" type="submit" class="btn btn-lg btn-block btn-info" style="width:200px;" (click)="onSubmit()">-->
+          <button [disabled]="!appointmentForm.form.valid" class="btn btn-lg btn-block btn-info" style="width:200px;">
+            <i class="fa fa-floppy-o"></i> Submit
+          </button>
+          <button type="button" class="btn btn-lg btn-block btn-secondary" style="width:200px;" (click)="resetForm(appointmentForm)">
+            <i class="fa fa-repeat"></i> Reset
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</nav>

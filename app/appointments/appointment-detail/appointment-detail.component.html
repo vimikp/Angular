@@ -1,0 +1,48 @@
+
+<div class="container">
+  <div class="panel panel-primary" *ngIf='appointment'>
+    <div class="panel-heading">
+      <h1>{{ pageTitle }}</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        Id: {{appointment.Id}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Description: {{appointment.Description}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Start Date:  {{ appointment.Start }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        End Date:  {{ appointment.End }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Notes:  {{ appointment.Notes }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        Party:  {{ appointment.Party }}
+      </div>
+    </div>
+    <div class='panel-footer'>
+      <div>
+        <button class="btn btn-default" (click)="onEditAppointment()">Edit</button>
+      </div>
+      <a class="btn btn-default" (click)="onBack()" style="width:80px">
+        <i class="glyphicon glyphicon-chevron-left"></i>Back
+      </a>
+
+    </div>
+  </div>
+</div>
